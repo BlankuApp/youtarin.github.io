@@ -21,23 +21,23 @@ const routes = [
       import(/* webpackChunkName: "about" */ "../views/AboutView.vue"),
   },
   {
-    path: "/youtarin/channels",
+    path: "/channels",
     name: "channels",
     component: ChannelsView,
   },
   {
-    path: "youtarin/channel/:channel_name",
+    path: "/channel/:channel_name",
     name: "Channel",
     component: ChannelView,
     props: true, // This allows the route parameter to be passed as a prop
   },
   {
-    path: "youtarin/videos",
+    path: "/videos",
     name: "videos",
     component: VideosView,
   },
   {
-    path: "youtarin/video/:video_id",
+    path: "/video/:video_id",
     name: "Video",
     component: VideoView,
     props: true, // This allows the route parameter to be passed as a prop
@@ -45,7 +45,8 @@ const routes = [
 ];
 
 const router = createRouter({
-  history: createWebHistory(process.env.BASE_URL),
+  history: createWebHashHistory(),
+  // history: createWebHistory(process.env.BASE_URL),
   routes,
 });
 
