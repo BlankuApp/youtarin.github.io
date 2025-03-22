@@ -1,132 +1,132 @@
 <template>
   <!-- Videos -->
   <div class="row"><h1>ویدیو‌ها</h1></div>
-  <div v-if="top_videos && top_videos?.length">
-    <div class="d-flex flex-wrap align-items-center pb-3">
-      <div>مرتب‌سازی بر اساس</div>
-      <div
-        class="btn-group p-1"
-        role="group"
-        aria-label="Basic radio toggle button group"
-        @change="fetchTopVideos"
+  <div class="d-flex flex-wrap align-items-center pb-3">
+    <div>مرتب‌سازی بر اساس</div>
+    <div
+      class="btn-group p-1"
+      role="group"
+      aria-label="Basic radio toggle button group"
+      @change="fetchTopVideos"
+    >
+      <input
+        type="radio"
+        class="btn-check"
+        name="vd_type"
+        id="vd_created"
+        autocomplete="off"
+        value="created"
+        v-model="vd_selected_type"
+      />
+      <label class="btn btn-outline-info" for="vd_created"
+        >تاریخ انتشار</label
       >
-        <input
-          type="radio"
-          class="btn-check"
-          name="vd_type"
-          id="vd_created"
-          autocomplete="off"
-          value="created"
-          v-model="vd_selected_type"
-        />
-        <label class="btn btn-outline-info" for="vd_created"
-          >تاریخ انتشار</label
-        >
-        <input
-          type="radio"
-          class="btn-check"
-          name="vd_type"
-          id="vd_views"
-          autocomplete="off"
-          value="views"
-          v-model="vd_selected_type"
-        />
-        <label class="btn btn-outline-info" for="vd_views">بازدید</label>
+      <input
+        type="radio"
+        class="btn-check"
+        name="vd_type"
+        id="vd_views"
+        autocomplete="off"
+        value="views"
+        v-model="vd_selected_type"
+      />
+      <label class="btn btn-outline-info" for="vd_views">بازدید</label>
 
-        <input
-          type="radio"
-          class="btn-check"
-          name="vd_type"
-          id="vd_likes"
-          autocomplete="off"
-          value="likes"
-          v-model="vd_selected_type"
-        />
-        <label class="btn btn-outline-info" for="vd_likes">لایک</label>
+      <input
+        type="radio"
+        class="btn-check"
+        name="vd_type"
+        id="vd_likes"
+        autocomplete="off"
+        value="likes"
+        v-model="vd_selected_type"
+      />
+      <label class="btn btn-outline-info" for="vd_likes">لایک</label>
 
-        <input
-          type="radio"
-          class="btn-check"
-          name="vd_type"
-          id="vd_likes_ratio"
-          autocomplete="off"
-          value="likes_ratio"
-          v-model="vd_selected_type"
-        />
-        <label class="btn btn-outline-info" for="vd_likes_ratio">محبوبیت</label>
+      <input
+        type="radio"
+        class="btn-check"
+        name="vd_type"
+        id="vd_likes_ratio"
+        autocomplete="off"
+        value="likes_ratio"
+        v-model="vd_selected_type"
+      />
+      <label class="btn btn-outline-info" for="vd_likes_ratio">محبوبیت</label>
 
-        <input
-          type="radio"
-          class="btn-check"
-          name="vd_type"
-          id="vd_comments"
-          autocomplete="off"
-          value="comments"
-          v-model="vd_selected_type"
-        />
-        <label class="btn btn-outline-info" for="vd_comments">کامنت</label>
-      </div>
-
-      <div
-        class="btn-group"
-        role="group"
-        aria-label="Basic radio toggle button group"
-        @change="fetchTopVideos"
-      >
-        <input
-          type="radio"
-          class="btn-check"
-          name="vd_time"
-          id="vd_3hours"
-          autocomplete="off"
-          value="-2 hours"
-          v-model="vd_selected_time"
-        />
-        <label class="btn btn-outline-info" for="vd_3hours">3 ساعت</label>
-        <input
-          type="radio"
-          class="btn-check"
-          name="vd_time"
-          id="vd_12hours"
-          autocomplete="off"
-          value="-11 hours"
-          v-model="vd_selected_time"
-        />
-        <label class="btn btn-outline-info" for="vd_12hours">12 ساعت</label>
-        <input
-          type="radio"
-          class="btn-check"
-          name="vd_time"
-          id="vd_daily"
-          autocomplete="off"
-          value="-1 day"
-          v-model="vd_selected_time"
-        />
-        <label class="btn btn-outline-info" for="vd_daily">روز</label>
-
-        <input
-          type="radio"
-          class="btn-check"
-          name="vd_time"
-          id="vd_weekly"
-          autocomplete="off"
-          value="-7 days"
-          v-model="vd_selected_time"
-        />
-        <label class="btn btn-outline-info" for="vd_weekly">هفته</label>
-
-        <input
-          type="radio"
-          class="btn-check"
-          name="vd_time"
-          id="vd_monthly"
-          autocomplete="off"
-          value="-30 days"
-          v-model="vd_selected_time"
-        />
-        <label class="btn btn-outline-info" for="vd_monthly">ماه</label>
-      </div>
+      <input
+        type="radio"
+        class="btn-check"
+        name="vd_type"
+        id="vd_comments"
+        autocomplete="off"
+        value="comments"
+        v-model="vd_selected_type"
+      />
+      <label class="btn btn-outline-info" for="vd_comments">کامنت</label>
     </div>
+
+    <div
+      class="btn-group"
+      role="group"
+      aria-label="Basic radio toggle button group"
+      @change="fetchTopVideos"
+    >
+      <input
+        type="radio"
+        class="btn-check"
+        name="vd_time"
+        id="vd_3hours"
+        autocomplete="off"
+        value="-2 hours"
+        v-model="vd_selected_time"
+      />
+      <label class="btn btn-outline-info" for="vd_3hours">3 ساعت</label>
+      <input
+        type="radio"
+        class="btn-check"
+        name="vd_time"
+        id="vd_12hours"
+        autocomplete="off"
+        value="-11 hours"
+        v-model="vd_selected_time"
+      />
+      <label class="btn btn-outline-info" for="vd_12hours">12 ساعت</label>
+      <input
+        type="radio"
+        class="btn-check"
+        name="vd_time"
+        id="vd_daily"
+        autocomplete="off"
+        value="-1 day"
+        v-model="vd_selected_time"
+      />
+      <label class="btn btn-outline-info" for="vd_daily">روز</label>
+
+      <input
+        type="radio"
+        class="btn-check"
+        name="vd_time"
+        id="vd_weekly"
+        autocomplete="off"
+        value="-7 days"
+        v-model="vd_selected_time"
+      />
+      <label class="btn btn-outline-info" for="vd_weekly">هفته</label>
+
+      <input
+        type="radio"
+        class="btn-check"
+        name="vd_time"
+        id="vd_monthly"
+        autocomplete="off"
+        value="-30 days"
+        v-model="vd_selected_time"
+      />
+      <label class="btn btn-outline-info" for="vd_monthly">ماه</label>
+    </div>
+  </div>
+  <div v-if="top_videos && top_videos?.length">
     <div class="row">
       <div class="d-flex flex-wrap justify-content-around">
         <div
@@ -210,102 +210,102 @@
   <div v-else class="text-center fs-5">درحال بارگذاری ...</div>
   <!-- Channels -->
   <div class="row"><h1>کانال‌ها</h1></div>
+  <div class="d-flex flex-wrap align-items-center pb-3">
+    <div>مرتب‌سازی بر اساس</div>
+    <div
+      class="btn-group p-1"
+      role="group"
+      aria-label="Basic radio toggle button group"
+    >
+      <input
+        type="radio"
+        class="btn-check"
+        name="ch_type"
+        id="ch_views"
+        autocomplete="off"
+        value="view"
+        v-model="ch_selected_type"
+      />
+      <label class="btn btn-outline-info" for="ch_views">بازدید</label>
+
+      <input
+        type="radio"
+        class="btn-check"
+        name="ch_type"
+        id="ch_subscribers"
+        autocomplete="off"
+        value="subscriber"
+        v-model="ch_selected_type"
+      />
+      <label class="btn btn-outline-info" for="ch_subscribers">مشترکین</label>
+
+      <input
+        type="radio"
+        class="btn-check"
+        name="ch_type"
+        id="ch_videos"
+        autocomplete="off"
+        value="video"
+        v-model="ch_selected_type"
+      />
+      <label class="btn btn-outline-info" for="ch_videos">ویدیو</label>
+    </div>
+
+    <div
+      class="btn-group"
+      role="group"
+      aria-label="Basic radio toggle button group"
+    >
+      <input
+        type="radio"
+        class="btn-check"
+        name="ch_time"
+        id="ch_daily"
+        autocomplete="off"
+        value="daily"
+        v-model="ch_selected_time"
+      />
+      <label class="btn btn-outline-info" for="ch_daily">روز</label>
+
+      <input
+        type="radio"
+        class="btn-check"
+        name="ch_time"
+        id="ch_weekly"
+        autocomplete="off"
+        value="weekly"
+        v-model="ch_selected_time"
+      />
+      <label class="btn btn-outline-info" for="ch_weekly">هفته</label>
+
+      <input
+        type="radio"
+        class="btn-check"
+        name="ch_time"
+        id="ch_monthly"
+        autocomplete="off"
+        value="monthly"
+        v-model="ch_selected_time"
+      />
+      <label class="btn btn-outline-info" for="ch_monthly">ماه</label>
+      <input
+        type="radio"
+        class="btn-check"
+        name="ch_time"
+        id="ch_total"
+        autocomplete="off"
+        value="total"
+        v-model="ch_selected_time"
+      />
+      <label class="btn btn-outline-info" for="ch_total">کل</label>
+    </div>
+  </div>
   <div
     v-if="
       top_channels &&
       top_channels[ch_selected_time + '_' + ch_selected_type]?.length
     "
   >
-    <div class="d-flex flex-wrap align-items-center pb-3">
-      <div>مرتب‌سازی بر اساس</div>
-      <div
-        class="btn-group p-1"
-        role="group"
-        aria-label="Basic radio toggle button group"
-      >
-        <input
-          type="radio"
-          class="btn-check"
-          name="ch_type"
-          id="ch_views"
-          autocomplete="off"
-          value="view"
-          v-model="ch_selected_type"
-        />
-        <label class="btn btn-outline-info" for="ch_views">بازدید</label>
-
-        <input
-          type="radio"
-          class="btn-check"
-          name="ch_type"
-          id="ch_subscribers"
-          autocomplete="off"
-          value="subscriber"
-          v-model="ch_selected_type"
-        />
-        <label class="btn btn-outline-info" for="ch_subscribers">مشترکین</label>
-
-        <input
-          type="radio"
-          class="btn-check"
-          name="ch_type"
-          id="ch_videos"
-          autocomplete="off"
-          value="video"
-          v-model="ch_selected_type"
-        />
-        <label class="btn btn-outline-info" for="ch_videos">ویدیو</label>
-      </div>
-
-      <div
-        class="btn-group"
-        role="group"
-        aria-label="Basic radio toggle button group"
-      >
-        <input
-          type="radio"
-          class="btn-check"
-          name="ch_time"
-          id="ch_daily"
-          autocomplete="off"
-          value="daily"
-          v-model="ch_selected_time"
-        />
-        <label class="btn btn-outline-info" for="ch_daily">روز</label>
-
-        <input
-          type="radio"
-          class="btn-check"
-          name="ch_time"
-          id="ch_weekly"
-          autocomplete="off"
-          value="weekly"
-          v-model="ch_selected_time"
-        />
-        <label class="btn btn-outline-info" for="ch_weekly">هفته</label>
-
-        <input
-          type="radio"
-          class="btn-check"
-          name="ch_time"
-          id="ch_monthly"
-          autocomplete="off"
-          value="monthly"
-          v-model="ch_selected_time"
-        />
-        <label class="btn btn-outline-info" for="ch_monthly">ماه</label>
-        <input
-          type="radio"
-          class="btn-check"
-          name="ch_time"
-          id="ch_total"
-          autocomplete="off"
-          value="total"
-          v-model="ch_selected_time"
-        />
-        <label class="btn btn-outline-info" for="ch_total">کل</label>
-      </div>
-    </div>
 
     <div>
       <table class="table table-sm table-hover align-middle">
