@@ -21,23 +21,23 @@ const routes = [
       import(/* webpackChunkName: "about" */ "../views/AboutView.vue"),
   },
   {
-    path: "/channels",
+    path: "/youtarin/channels",
     name: "channels",
     component: ChannelsView,
   },
   {
-    path: "/channel/:channel_name",
+    path: "youtarin/channel/:channel_name",
     name: "Channel",
     component: ChannelView,
     props: true, // This allows the route parameter to be passed as a prop
   },
   {
-    path: "/videos",
+    path: "youtarin/videos",
     name: "videos",
     component: VideosView,
   },
   {
-    path: "/video/:video_id",
+    path: "youtarin/video/:video_id",
     name: "Video",
     component: VideoView,
     props: true, // This allows the route parameter to be passed as a prop
