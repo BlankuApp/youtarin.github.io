@@ -154,7 +154,7 @@
               style="max-width: 40px"
               class="position-absolute top-0 end-0"
             />
-            <a :href="'video/' + video.video_id">
+            <a :href="'./#/video/' + video.video_id">
               <img
                 :src="
                   'https://i.ytimg.com/vi/' + video.video_id + '/hqdefault.jpg'
@@ -325,7 +325,7 @@
               />
             </td>
             <td>
-              <a :href="'channel/' + channel.customURL.slice(1)">{{
+              <a :href="'./#/channel/' + channel.customURL.slice(1)">{{
                 channel.title
               }}</a>
             </td>
